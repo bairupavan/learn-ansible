@@ -5,7 +5,7 @@
   tasks:
     - name: print variable
       ansible.builtin.debug:
-        msg: name {{first_name}} #printing the variable value first_name here
+        msg: name on play level {{first_name}} #printing the variable value first_name here
 
 
 - name: demo on variable on task level
@@ -15,4 +15,15 @@
       ansible.builtin.debug:
         msg: name on task level {{last_name}}  # calling the task level variable
       vars:         # variable at task level
-        last_name: bairu
+        last_name: bairu    #only this task is able to access the variable and other tasks cannot access
+
+
+# variable files on play bool level
+- name: demo on print from var_files
+  hosts: all
+  vars_files:  # variable files
+    - ex-vars.yml   #file name
+  tasks:
+    - name: print the variable from ex-vars.yml file
+      ansible.builtin.debug:
+        msg: middle name from file {{middle_name}}
