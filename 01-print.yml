@@ -1,0 +1,7 @@
+- name: First ansible play book
+  hosts: all
+  tasks:
+    - name: print the message
+      ansible.builtin.debug:
+        msg: Hello world!
+#ansible-playbook -i localhost, -e ansible_user=centos -e ansible_password=DevOps321 01-print.yml
