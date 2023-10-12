@@ -1,3 +1,4 @@
+#just writing the tasks in this file and will be called in the roles
 - name: print the message
   ansible.builtin.debug:
     msg: Hello World from role

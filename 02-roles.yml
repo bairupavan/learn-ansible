@@ -1,4 +1,6 @@
 - name: print from role
   hosts: all
-  roles:
-    - sample(role_name)
+  roles:     # using the roles
+    - sample(role_name) #calling this role name from structure roles ->sample(role_name) ->tasks
+
+

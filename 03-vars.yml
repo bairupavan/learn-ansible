@@ -1,0 +1,8 @@
+- name: demo on printing the variable
+  hosts: all
+  vars:
+    first_name: pavan # defining the variable at playlevel
+  tasks:
+    - name: print variable
+      ansible.builtin.debug:
+        msg: name {{first_name}} #printing the variable value first_name here
