@@ -1,3 +1,4 @@
+# the variable at playlevel
 - name: demo on printing the variable on play level
   hosts: all
   vars:
@@ -8,6 +9,7 @@
         msg: name on play level {{first_name}} #printing the variable value first_name here
 
 
+# the variable at tasklevel
 - name: demo on variable on task level
   hosts: all
   tasks:
@@ -19,6 +21,7 @@
 
 
 # variable files on play bool level
+#it does not support on task level. only on play level
 - name: demo on print from var_files
   hosts: all
   vars_files:  # variable files
@@ -27,3 +30,12 @@
     - name: print the variable from ex-vars.yml file
       ansible.builtin.debug:
         msg: middle name from file {{middle_name}}
+
+
+# variable from roles/sample(role_name)/vars
+- name: demo on variable from roles/sample(role_name)/vars
+  hosts: all
+  vars:
+    address: warangal    #this variable can be accessed for all the roles
+  roles:
+    - sample(role_name)  # this varibale can not be accessed for all the roles only accessed for sample(role_name) role

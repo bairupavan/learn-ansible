@@ -2,3 +2,15 @@
 - name: print the message
   ansible.builtin.debug:
     msg: Hello World from role
+
+# this task is for printing the variable from roles/sample(role_name)/vars at role level
+# this varibale can not be accessed for all the roles only accessed for sample(role_name) role
+- name: printing the variable from roles/sample(role_name)/vars at role level
+  ansible.builtin.debug:
+    msg: variable from roles/sample(role_name)/vars at role level - {{title}}
+
+# this task is for printing the variable from roles/sample(role_name)/vars at play level
+# this variable can be accessed for all the roles
+- name: printing the variable from roles/sample(role_name)/vars at play level
+  ansible.builtin.debug:
+    msg: variable from roles/sample(role_name)/vars at play level - {{address}}
