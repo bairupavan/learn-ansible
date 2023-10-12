@@ -1,0 +1,4 @@
+- name: print from role
+  hosts: all
+  roles:
+    - sample(role_name)
