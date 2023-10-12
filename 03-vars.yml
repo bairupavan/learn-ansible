@@ -1,4 +1,4 @@
-- name: demo on printing the variable
+- name: demo on printing the variable on play level
   hosts: all
   vars:
     first_name: pavan # defining the variable at playlevel
@@ -6,3 +6,13 @@
     - name: print variable
       ansible.builtin.debug:
         msg: name {{first_name}} #printing the variable value first_name here
+
+
+- name: demo on variable on task level
+  hosts: all
+  tasks:
+    - name: print the task level variable
+      ansible.builtin.debug:
+        msg: name on task level {{last_name}}  # calling the task level variable
+    vars:         # variable at task level
+      last_name: bairu
