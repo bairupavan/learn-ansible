@@ -14,5 +14,5 @@
     - name: print the task level variable
       ansible.builtin.debug:
         msg: name on task level {{last_name}}  # calling the task level variable
-    vars:         # variable at task level
-      last_name: bairu
+    - vars:         # variable at task level
+        last_name: bairu
